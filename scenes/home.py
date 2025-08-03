@@ -30,7 +30,7 @@ class HomeScene:
         self.is_pause = False
 
     def update(self, dt):
-        self.texts["stage_count"].text = f"Stage {str(self.manager.map_manager.current_map["num"])}"
+        self.texts["stage_count"].text = f"Stage {str(self.manager.map_manager.current_map['num'])}"
         self.texts["stage_name"].text = str(self.manager.map_manager.current_map["name"])
 
     def draw(self, screen):

@@ -104,7 +104,7 @@ class Finish:
     
     def update(self, dx):
         self.texts["move_count"].text = f"Move Count: {self.father.move_count}"
-        self.texts["best_record"].text = f"Best Record: {self.manager.map_manager.current_map["best_record"]}"
+        self.texts["best_record"].text = f"Best Record: {self.manager.map_manager.current_map['best_record']}"
 
     def draw(self, screen):
         pygame.draw.rect(
