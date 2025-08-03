@@ -1,13 +1,13 @@
-name: Build EXE for Windows with assets and icon
+name: Build app for macOS
 
 on:
   push:
     branches:
-      - main  # 替換成你使用的分支
+      - main
 
 jobs:
-  build-windows:
-    runs-on: windows-latest
+  build-macos:
+    runs-on: macos-latest
 
     steps:
     - name: Checkout code
@@ -23,12 +23,16 @@ jobs:
         python -m pip install --upgrade pip
         pip install pyinstaller
 
-    - name: Build EXE with assets and icon
+    - name: Build App
       run: |
-        pyinstaller main.py --onefile --windowed --icon=icon.ico --add-data "assets;assets"
+        pyinstaller main.py \
+          --onefile \
+          --windowed \
+          --icon=icon.icns \
+          --add-data "assets:assets"
 
-    - name: Upload EXE file
+    - name: Upload App
       uses: actions/upload-artifact@v4
       with:
-        name: my-program
-        path: dist/main.exe
+        name: my-mac-app
+        path: dist/main
