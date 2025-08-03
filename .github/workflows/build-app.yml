@@ -30,7 +30,9 @@ jobs:
           --onefile \
           --windowed \
           --icon=icon.icns \
-          --add-data "assets:assets"
+          --add-data "assets:assets" \
+          --add-data "scenes:scenes" \
+          --add-data "core:core"
 
     - name: Upload App
       uses: actions/upload-artifact@v4

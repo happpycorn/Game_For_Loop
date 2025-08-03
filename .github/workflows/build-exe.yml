@@ -3,7 +3,7 @@ name: Build EXE for Windows with assets and icon
 on:
   push:
     branches:
-      - main  # 替換成你使用的分支
+      - main
 
 jobs:
   build-windows:
@@ -24,12 +24,12 @@ jobs:
         pip install -r requirements.txt
         pip install pyinstaller
 
-    - name: Build EXE with assets and icon
+    - name: Build EXE
       run: |
-        pyinstaller main.py --onefile --windowed --icon=icon.ico --add-data "assets;assets"
+        pyinstaller main.py --onefile --windowed --icon=icon.ico --add-data "assets;assets" --add-data "scenes;scenes" --add-data "core;core"
 
-    - name: Upload EXE file
+    - name: Upload EXE
       uses: actions/upload-artifact@v4
       with:
-        name: my-program
+        name: my-windows-app
         path: dist/main.exe
