@@ -42,7 +42,7 @@ class Pause:
             "exit": Button(EXIT_BUTTON_PATH, (340,360), 120, 40)
         }
 
-        self.pause_outline_img = pygame.image.load("assets/images/Sound_Not_Work.png").convert_alpha()
+        self.pause_outline_img = pygame.image.load(resource_path("assets/images/Sound_Not_Work.png")).convert_alpha()
 
     def draw(self, screen):
         pygame.draw.rect(
